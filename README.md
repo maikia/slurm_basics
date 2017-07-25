@@ -1,10 +1,16 @@
 # access cluster
 
+```
 ssh USER@CLUSTERIP
-pass: PASS
+# pass: PASS
+```
 
+Your cluster may use ganglia to show the load:
+
+```
 http://CLUSTERIP/ganglia
 http://CLUSTERIP/docs/index.html
+```
 
 # basic job management in SLURM
 
