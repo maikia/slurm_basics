@@ -1,23 +1,30 @@
+# access cluster
+
 ssh USER@CLUSTERIP
 pass: PASS
 
 http://CLUSTERIP/ganglia
 http://CLUSTERIP/docs/index.html
 
+# basic job management in SLURM
 
 for info on the cluster:
-sinfo
+
+`sinfo`
 
 for info on the nodes:
-squeue
+`squeue`
 
 to force quit the job
 
 
 to run single command in python:
+
+```
 salloc -p amd # otwiera nowy shell z dostepem do klastra (partycja amd)
 srun python -c 'script here' # uruchamia komende w pythonie na klustrze
 ctrl+D # zamyka shell
+```
 
 # install conda
 
