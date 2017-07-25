@@ -67,9 +67,12 @@ script.sh
 
 # run 100 wait tasks each one on a separate CPU
 for i in `seq 1 100`; do
+#note the -n1 -N1 --exclusive options and the ampersand (&) at the end
+# 10 is the number of seconds to wait (argument of wait.py script)
 srun -n1 -N1 --exclusive python wait.py 10 &
 done
 
+# don't forget to wait otherwise the job will be closed permaturely
 wait
 ```
 
