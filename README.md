@@ -57,6 +57,9 @@ python setup.py install
 
 # Sample batch task
 
+To schedule a job asychronously (for running later) you need to write a batch script and execute it with `sbatch`. The script
+can be written with bash:
+
 script.sh
 
 ```
@@ -70,6 +73,7 @@ done
 wait
 ```
 
+The task itself is a Python script:
 
 wait.py
 
@@ -88,4 +92,14 @@ print "finished"
 To run the wait.py script on 10 processors:
 
 `sbatch -n10 script.sh`
+
+If number of CPUs on one node is not sufficient (n_cpus < 10) `sbatch` will run the processes on other nodes as well.
+
+The job consists of 100 job steps, but only 10 can be executed simulatenously. To check the running job steps use:
+
+`squeue -s`
+
+To exclude a node from the computation use:
+
+`sbatch -n10 --exclude=node01 script.sh`
 
